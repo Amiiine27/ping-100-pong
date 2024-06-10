@@ -1,0 +1,102 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Ajouter un Tournoi</h2>
+ 
+ 
+  <form #tournoiForm="ngForm" (ngSubmit)="onSubmit(tournoiForm)">
+ 
+ 
+    <!-- Détails Généraux du Tournoi -->
+    <div class="card mb-4">
+      <div class="card-header">
+        Détails Généraux
+      </div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="id" class="form-label">ID Tournoi <span class="required-asterisk">*</span></label>
+          <input type="text" id="id" class="form-control" [(ngModel)]="tournoiModel._id" name="id" required>
+        </div>
+ 
+ 
+        <div class="mb-3">
+          <label for="nomTournoi" class="form-label">Nom du Tournoi <span class="required-asterisk">*</span></label>
+          <input type="text" id="nomTournoi" class="form-control" [(ngModel)]="tournoiModel.nomTournoi" name="nomTournoi" required>
+        </div>
+      </div>
+    </div>
+ 
+ 
+    <!-- Informations Spécifiques -->
+    <div class="card mb-4">
+      <div class="card-header">
+        Informations Spécifiques
+      </div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="type" class="form-label">Type de Tournoi <span class="required-asterisk">*</span></label>
+          <select id="type" class="form-select" [(ngModel)]="tournoiModel.type" name="type" required>
+            <option value="simple">Simple</option>
+            <option value="double">Double</option>
+          </select>
+        </div>
+ 
+ 
+        <div class="mb-3">
+          <label for="nature" class="form-label">Nature du Tournoi <span class="required-asterisk">*</span></label>
+          <select id="nature" class="form-select" [(ngModel)]="tournoiModel.nature" name="nature" required>
+            <option value="mixte">Mixte</option>
+            <option value="homme">Homme</option>
+            <option value="femme">Femme</option>
+          </select>
+        </div>
+ 
+ 
+          <div class="mb-3">
+          <label for="nbTable" class="form-label">Place Disponible <span class="required-asterisk">*</span></label>
+          <input type="number" id="placeDisponible" class="form-control" [(ngModel)]="tournoiModel.placeDisponible" name="placeDisponible" required>
+        </div>
+ 
+ 
+        <div class="mb-3">
+          <label for="nbTable" class="form-label">Nombre de Tables <span class="required-asterisk">*</span></label>
+          <input type="number" id="nbTable" class="form-control" [(ngModel)]="tournoiModel.nbTableau" name="nbTable" required>
+        </div>
+      </div>
+    </div>
+ 
+ 
+    <!-- Dates du Tournoi -->
+    <div class="card mb-4">
+      <div class="card-header">
+        Dates du Tournoi
+      </div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="dateOuverture" class="form-label">Date d'Ouverture <span class="required-asterisk">*</span></label>
+          <input type="date" id="dateOuverture" class="form-control" [(ngModel)]="tournoiModel.dateOuverture" name="dateOuverture" required>
+        </div>
+ 
+ 
+        <div class="mb-3">
+          <label for="dateFermeture" class="form-label">Date de Fermeture <span class="required-asterisk">*</span></label>
+          <input type="date" id="dateFermeture" class="form-control" [(ngModel)]="tournoiModel.dateFermeture" name="dateFermeture" required>
+        </div>
+      </div>
+    </div>
+ 
+ 
+    <button type="submit" class="btn btn-submit" [disabled]="!tournoiForm.valid">Ajouter</button>
+    <!-- Message de succès -->
+      <div *ngIf="messageSuccess" class="alert alert-success">
+        {{ messageSuccess }}
+      </div>
+ 
+ 
+      <!-- Message d'erreur -->
+      <div *ngIf="messageError" class="alert alert-danger">
+        {{ messageError }}
+      </div>
+  </form>
+ </div>
+ 
+ 
+ 

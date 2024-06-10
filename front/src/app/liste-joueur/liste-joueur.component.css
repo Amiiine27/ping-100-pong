@@ -1,0 +1,125 @@
+/* Configuration de base de la page */
+/* Ce bloc définit la structure principale de la page, en utilisant flex pour organiser le contenu en colonnes et en s'assurant que la page utilise au moins toute la hauteur de la fenêtre. La couleur de fond est également définie ici pour un confort visuel. */
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #F4F7F6;
+}
+
+/* Barre de recherche */
+/* Cette section concerne la barre de recherche, incluant le champ de saisie et le bouton de recherche. Les styles garantissent que la barre de recherche est bien visible, accessible et facile à utiliser. */
+.search-bar {
+  display: flex;
+  justify-content: left;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.search-bar input[type="text"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border-radius: 5px 0 0 5px;
+  border: 2px solid #92B9CD;
+  outline: none;
+}
+
+.search-button {
+  padding: 10px 15px;
+  border-radius: 0 5px 5px 0;
+  border: 2px solid #92B9CD;
+  background-color: #2C5367;
+  color: white;
+  cursor: pointer;
+  outline: none;
+}
+
+.search-button:hover {
+  background-color: #1B3B4F;
+}
+
+/* Cartes des joueurs */
+/* Les styles ici sont destinés à la présentation des cartes des joueurs. Ils définissent la manière dont les cartes sont affichées, leur apparence générale et leur comportement au survol. */
+.player-cards {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card-custom {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.card-custom:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.card-body-custom {
+  background-color: #ECF0F4;
+  padding: 15px;
+}
+
+.card-title-custom, .card-title-second {
+  margin-bottom: 15px;
+  color: #2C5367;
+  font-size: 1rem;
+}
+
+/* Pagination */
+/* La pagination est traitée dans cette section, avec des styles pour la rendre intuitive et cohérente avec le reste du design. */
+.paginator {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #ECF0F4;
+  justify-content: flex-end;
+}
+
+.paginator select, .paginator button {
+  margin: 0 0.2rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 2px solid #92B9CD;
+}
+
+.paginator button {
+  background-color: #2C5367;
+  color: white;
+}
+
+.paginator button[disabled] {
+  background-color: #BCCED9;
+  cursor: not-allowed;
+}
+
+.paginator button:hover:not([disabled]) {
+  background-color: #1B3B4F;
+}
+
+/* Icone de recherche personnalisée */
+.bi-search-custom {
+  font-size: 1.2rem;
+  color: #fff;
+  padding-right: 0.2rem;
+}
+
+/* Adaptations pour les petits écrans */
+/* Les styles contenus dans cette requête média visent à optimiser l'affichage sur les appareils à écran réduit, en ajustant certains éléments pour une meilleure expérience utilisateur. */
+@media (max-width: 575.98px) {
+  .sm-justify-content-center {
+    display: flex;
+    justify-content: center;
+  }
+  .hide {
+    display: none;
+  }
+}

@@ -1,0 +1,23 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+/* You can add global styles to this file, and also import other style files */
+h1-custom {
+  font-size: 1.5rem;
+}
+
+/* Créer une classe pour le texte en mode couleur bleu */
+.texte-couleur-bleu {
+  color: #2C5367;
+}
+
+.message-information {
+  display:flex;
+  align-items: center;
+}
+
+/**icone info**/
+.bi-info-circle-custom {
+  font-size: 2rem;
+  color: cornflowerblue;
+  padding-right: 0.8rem;
+}
