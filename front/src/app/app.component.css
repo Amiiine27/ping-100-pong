@@ -1,0 +1,13 @@
+h1-custom {
+  font-size: 4.5rem;
+}
+
+/* Créer une classe pour le texte en mode couleur bleu */
+.texte-couleur-bleu {
+  color: #2C5367;
+}
+
+.message-information {
+  display:flex;
+  color :red;
+}

@@ -1,0 +1,105 @@
+<div class="container my-5">
+  <h1 class="texte-couleur-bleu mb-4">Inscrivez-vous à un Tournoi de Ping-Pong</h1>
+ 
+ 
+  <div class="alert alert-primary" role="alert">
+    <i class="bi bi-info-circle" aria-hidden="true"></i>
+    <span>Découvrez les tournois disponibles et choisissez celui qui vous inspire ! C'est votre moment de briller.</span>
+  </div>
+ 
+ 
+  <fieldset class="card shadow mb-4">
+    <legend class="card-header fw-bold">Règles du Tournoi</legend>
+    <div class="card-body">
+      <p>Voici quelques éléments clés pour une compétition réussie :</p>
+ 
+ 
+      <h4>Capacité du Tournoi</h4>
+      <p>Chaque tournoi a un nombre défini de places, assurant une expérience de qualité pour tous.</p>
+ 
+ 
+      <h4>Formats de Tournoi</h4>
+      <ul>
+        <li><strong>Simple :</strong> Une confrontation directe où chaque joueur affronte les autres.</li>
+        <li><strong>Mixte :</strong> Une aventure d'équipe avec une touche de diversité, réunissant différents talents.</li>
+      </ul>
+ 
+ 
+      <h4>Détermination du Vainqueur</h4>
+      <p>Le joueur ou l'équipe avec le plus de points à la fin du tournoi sera couronné vainqueur.</p>
+ 
+ 
+      <h4>Esprit du Tournoi</h4>
+      <p>Nous valorisons le fair-play et la sportivité, créant ainsi des moments inoubliables pour tous.</p>
+    </div>
+  </fieldset>
+ 
+ 
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <h3 class="card-header mb-3 fw-bold">Votre Espace Tournoi</h3>
+ 
+ 
+      <div class="mb-3 d-flex align-items-center">
+        <label for="numeroInscription" class="form-label me-2" style="margin-bottom: 0;">Numéro d'Inscription :</label>
+        <input type="text" class="form-control me-2" id="numeroInscription" [(ngModel)]="numeroInscription" placeholder="Entrez votre numéro d'inscription" style="width: auto;">
+        <button class="btn btn-outline-primary me-2" (click)="validerNumeroInscription()">Valider</button>
+        <div class="ms-auto">
+          <i class="bi bi-folder-plus bi-forder-plus-custom" (click)="ouvrirPageAjoutTournois()"></i>
+        </div>
+      </div>
+ 
+ 
+      <!-- Message de validation -->
+      <div *ngIf="messageValidation" class="alert" [class.alert-success]="inscriptionValide" [class.alert-danger]="!inscriptionValide">
+        {{ messageValidation }}
+      </div>
+ 
+ 
+      <!-- Boutons pour voir les nouveaux tournois ou les tournois inscrits -->
+      <div class="d-flex justify-content-between mt-3" *ngIf="inscriptionValide">
+        <button class="btn btn-primary" (click)="voirNouveauxTournois()">Les Tournois</button>
+        <button class="btn btn-secondary" (click)="voirTournoisInscrits()"> Mes Tournois</button>
+      </div>
+ 
+ 
+      <!-- Tableau des tournois -->
+      <table class="table" *ngIf="inscriptionValide">
+        <thead>
+          <tr>
+            <th>Tournoi</th>
+            <th>Type</th>
+            <th>Place Disponible</th>
+            <th>Date d'Ouverture</th>
+            <th>Date de Fermeture</th>
+            <th>Inscription</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tournoi of tournois">
+            <td>{{ tournoi.nomTournoi }}</td>
+            <td>
+              <span *ngIf="tournoi.type === 'simple'">
+                <i class="bi bi-person" style="font-size: 24px; color: #28a745;"></i> Simple
+              </span>
+              <span *ngIf="tournoi.type === 'double'">
+                <i class="bi bi-people" style="font-size: 24px; color: #007bff;"></i> Double
+              </span>
+            </td>
+            <td>{{ tournoi.placeDisponible }}</td>
+            <td>{{ tournoi.dateOuverture | date: 'dd MMMM yyyy' }}</td>
+            <td>{{ tournoi.dateFermeture | date: 'dd MMMM yyyy' }}</td>
+            <td>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="{{'inscription_' + tournoi.nomTournoi}}" (change)="onChange($event, tournoi._id)">
+                <label class="form-check-label" for="{{'inscription_' + tournoi.nomTournoi}}"></label>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+ </div>
+ 
+ 

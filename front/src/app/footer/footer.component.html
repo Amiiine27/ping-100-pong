@@ -1,0 +1,36 @@
+<!-- Footer -->
+<footer class="footer">
+  <div class="container py-4">
+    <div class="row">
+      <!-- Plan du site -->
+      <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+          <a class="footer-heading-a" href="/plan-du-site">
+            <span class="footer-heading">Plan du site</span>
+          </a>
+      </div>
+
+      <!-- Contribueurs -->
+      <div class="col-md-6 col-lg-3">
+        <a class="footer-heading-a" href="/contributeurs">
+          <span class="footer-heading">Contribueurs</span>
+        </a>
+      </div>
+
+      <!-- RGPD -->
+      <div class="col-md-6 col-lg-3 mb-3 mb-md-0">
+        <a class="footer-heading-a" href="/mentions-legales">
+          <span class="footer-heading">Mentions Légales</span>
+        </a>
+      </div>
+
+      <div class="col-md-6 col-lg-3 mb-3 mb-md-0">
+        <a class="footer-heading-a" href="/donnees-personnelles">
+          <span class="footer-heading">Données Personnelles</span>
+        </a>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <span>© {{ dateDebut }}<span *ngIf="condition">-{{ dateCourante }}</span> Les Maitres de la Raquette. Tous droits réservés.</span>
+    </div>
+  </div>
+</footer>

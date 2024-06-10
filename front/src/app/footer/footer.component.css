@@ -1,0 +1,29 @@
+.footer {
+  background-color: #2C5367;
+  color: #fff;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 0.1rem;
+  
+}
+
+.footer-heading{
+  color: #eee; /* Couleur pour les titres des sections */
+  font-size: 1.2rem;
+}
+
+.footer-heading-a {
+  text-decoration: none;
+}
+
+.footer-heading:hover {
+  color: #fff; /* Couleur au survol */
+  text-decoration: underline; /* Souligne les liens au survol */
+}
+
+.list-unstyled {
+  padding-left: 0; /* Supprime le padding par défaut des listes */
+  list-style-type: none; /* Supprime les puces des listes */
+}

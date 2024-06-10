@@ -1,0 +1,85 @@
+.texte-couleur-bleu {
+  color: #2C5367; /* Couleur bleue Bootstrap pour la cohérence */
+}
+
+.bi-info-circle {
+  margin-right: 0.5rem;
+}
+
+.card-header {
+  font-size: 1.25rem; /* Taille légèrement plus grande pour les en-têtes de carte */
+}
+
+.input-group {
+  max-width: 500px; /* Contrôle la largeur du champ d'entrée et du bouton */
+  margin: auto; /* Centre le groupe d'entrée */
+}
+/* Le switch - boîte autour du slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px; /* Largeur réduite du switch */
+  height: 22px; /* Hauteur réduite du switch */
+}
+
+/* Cacher la case à cocher par défaut */
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Le slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc; /* Couleur de fond du slider */
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px; /* Hauteur ajustée du cercle à l'intérieur du switch */
+  width: 18px; /* Largeur ajustée du cercle à l'intérieur du switch */
+  left: 2px;
+  bottom: 2px;
+  background-color: white; /* Couleur de fond du cercle */
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3; /* Couleur de fond du slider lorsque le switch est activé */
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3; /* Ombre du slider lorsque le switch est activé */
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px); /* Déplace le cercle à l'intérieur du switch lorsque activé */
+}
+
+/* Style arrondi du slider */
+.slider.round {
+  border-radius: 22px; /* Arrondi extérieur ajusté du switch */
+}
+
+.slider.round:before {
+  border-radius: 50%; /* Arrondi du cercle à l'intérieur du switch */
+}
+
+.bi-forder-plus-custom{
+  font-size: 2rem;
+  color: cornflowerblue;
+  padding-right: 0.8rem;
+}
+
+.bi-forder-plus-custom:hover
+{
+  cursor:grab;
+}
