@@ -1,11 +1,9 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
-/* You can add global styles to this file, and also import other style files */
 h1-custom {
   font-size: 1.5rem;
 }
 
-/* Créer une classe pour le texte en mode couleur bleu */
 .texte-couleur-bleu {
   color: #2C5367;
 }
@@ -15,9 +13,46 @@ h1-custom {
   align-items: center;
 }
 
-/**icone info**/
 .bi-info-circle-custom {
   font-size: 2rem;
   color: cornflowerblue;
   padding-right: 0.8rem;
+}
+
+.navbar {
+  background-color: hwb(0 0% 100% / 0.137);
+}
+
+.navbar-nav .nav-link.active {
+  color: #5c5c5c;
+}
+.navbar-nav:hover .nav-link.active:hover {
+  color: #92B9CD;
+  border-bottom: 1px solid  #92B9CD;
+}
+
+.navbar-container {
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(211, 19, 19, 0.7); 
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+}
+
+.navbar {
+  justify-content: center;
+}
+
+.navbar-nav {
+  justify-content: center;
+}
+
+.nav-item {
+  margin-left: 15px;
+  margin-right: 15px;
 }

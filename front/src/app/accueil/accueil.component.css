@@ -15,6 +15,60 @@
   border-bottom: 1px solid  #92B9CD;
 }
 
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+  justify-content: center;
+}
+
+.navbar-nav {
+  justify-content: center;
+}
+
+.nav-item {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.accueil-image {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.accueil-titre {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.accueil-description {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.btn-mise-en-oeuvre {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+}
+
+.navbar-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7); 
+}
+
 /* Section accueil */
 .accueil-image {
   position: relative;
