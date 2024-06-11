@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <h2>Créer un tournoi</h2>
+      <div class="form-group col-md-6">
+        <label for="nom_tournoi">Nom du tournoi</label>
+        <input type="text" class="form-control" id="nom_tournoi" name="nom_tournoi" placeholder="Le nom du tournoi" [(ngModel)]="tournoiData.nom_tournoi">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="date_tournoi">Date du tournoi</label>
+      <input type="date" class="form-control" id="date_tournoi" name="date_tournoi" [(ngModel)]="tournoiData.date_tournoi">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="heure_debut_tournoi">Heure de début du tournoi</label>
+        <input type="time" class="form-control" id="heure_debut_tournoi" name="heure_debut_tournoi" [(ngModel)]="tournoiData.heure_debut_tournoi">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="nombre_tables">Nombre de tables</label>
+        <input type="number" class="form-control" id="nombre_tables" name="nombre_tables" placeholder="Nombre de tables" [(ngModel)]="tournoiData.nombre_tables">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="select_joueur">Sélectionner un joueur</label>
+      <select class="form-control" id="select_joueur" name="select_joueur" [(ngModel)]="selectedPlayer" (change)="addPlayer()">
+        <option *ngFor="let joueur of joueurs" [ngValue]="joueur">{{ joueur.nom }} {{ joueur.prenom }}</option>
+      </select>
+    </div>
+    <div>
+      <h3>Joueurs sélectionnés :</h3>
+      <ul>
+        <li *ngFor="let pseudo of tournoiData.joueurs_participants">{{ pseudo }}<button class="btn btn-primary" (click)="retirerJoueur(pseudo)">Retirer</button></li>
+      </ul>
+    </div>
+    <button type="submit" class="btn btn-primary">Soumettre</button>
+  </form>
+  <div *ngIf="messageFromServer">
+    <p>{{ messageFromServer }}</p>
+  </div>
+</div>

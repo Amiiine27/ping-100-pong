@@ -1,0 +1,26 @@
+<div *ngIf="data">
+  <table>
+    <thead>
+    <tr>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>Date de naissance</th>
+      <th>Sexe</th>
+      <th>Pseudo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let joueur of data">
+      <td>{{ joueur.prenom }}</td>
+      <td>{{ joueur.nom }}</td>
+      <td>{{ joueur.date_naissance }}</td>
+      <td>{{ joueur.sexe }}</td>
+      <td>{{ joueur.pseudo }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<a routerLink="/projet-s4" class="btn btn-primary btn-lg">
+  <i class="fas fa-arrow-left mr-2"></i> Retour
+</a>

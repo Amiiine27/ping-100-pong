@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="btn btn-success" routerLink="/">Projet S4</a>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-success" routerLink="/home-tournament">Tournoi</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink="/inserer-tournoi">Nouveau Tournoi</a>
+          <a class="dropdown-item" routerLink="/afficher-tournoi">Afficher Tournoi</a>
+          <a class="dropdown-item" routerLink="/modifier-tournoi">Modifier Tournoi</a>
+          <a class="dropdown-item" routerLink="/supprimer-tournoi">supprimer Tournoi</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-success" routerLink="/home-player">Joueur</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink="/afficher-joueur">Afficher Joueur</a>
+          <a class="dropdown-item" routerLink="/inserer-joueur">Nouveau Joueur</a>
+          <a class="dropdown-item" routerLink="/modifier-joueur">Modifier Joueur</a>
+          <a class="dropdown-item" routerLink="/supprimer-joueur">Supprimer Joueur</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>

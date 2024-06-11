@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <h2>Liste des tournois</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Date</th>
+      <th>Heure de début</th>
+      <th>Participants</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let tournament of data">
+      <td>{{ tournament.nom_tournoi }}</td>
+      <td>{{ tournament.date_tournoi }}</td>
+      <td>{{ tournament.heure_debut_tournoi }}</td>
+      <td>{{ tournament.nombre_participants }}</td>
+      <td>
+        <a class="btn btn-primary" [routerLink]="['/detail-tournoi', tournament.nom_tournoi]">Détails</a><a class="btn btn-primary"  (click)="deleteTournament(tournament.nom_tournoi)">Supprimer</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

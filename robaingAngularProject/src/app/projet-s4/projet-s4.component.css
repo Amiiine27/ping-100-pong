@@ -1,0 +1,84 @@
+
+
+.navbar {
+  background-color: #f7d7eb;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-brand {
+  color: #8e3a5f;
+}
+
+.navbar-toggler-icon {
+  background-color: #8e3a5f;
+}
+
+.nav-link {
+  color: #8e3a5f !important;
+}
+
+.nav-link:hover {
+  color: #6c2743 !important;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+
+
+.btn-group-vertical {
+}
+
+.btn {
+  width: 220px;
+  height: 100px;
+  font-size: 30px;
+  background-color: #f7d7eb;
+  border-color: #8e3a5f;
+  color: #8e3a5f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn:hover {
+  background-color: #f0bcd4;
+  border-color: #6c2743;
+  color: #6c2743;
+}
+
+/* Style pour le menu déroulant */
+.navbar-nav .dropdown-menu {
+  display: none; /* Cache le menu déroulant par défaut */
+  position: absolute;
+  z-index: 1000; /* Assure que le menu déroulant apparaît au-dessus des autres éléments */
+  background-color: #f7d7eb; /* Couleur de fond du menu déroulant */
+}
+
+/* Style pour afficher le menu déroulant lorsqu'un bouton est survolé */
+.navbar-nav .nav-item:hover .dropdown-menu {
+  display: flex; /* Affiche le menu déroulant lorsque survolé */
+  flex-direction: row; /* Ajuste la direction du menu déroulant à l'horizontale */
+  justify-content: center; /* Centre les éléments horizontalement */
+  list-style-type: none; /* Supprime les puces de la liste */
+  padding: 0; /* Ajuste le padding si nécessaire */
+  margin: 0; /* Ajuste la marge si nécessaire */
+}
+
+/* Style pour les éléments de menu déroulant */
+.navbar-nav .dropdown-menu a {
+  color: #8e3a5f; /* Couleur du texte */
+  padding: 10px 20px; /* Ajuste le padding si nécessaire */
+  text-decoration: none; /* Supprime la décoration du texte */
+  transition: all 0.3s ease; /* Ajoute une transition fluide */
+}
+
+/* Style pour les liens de menu déroulant lorsqu'ils sont survolés */
+.navbar-nav .dropdown-menu a:hover {
+  background-color: #f0bcd4; /* Couleur de fond au survol */
+  color: #6c2743; /* Couleur du texte au survol */
+}

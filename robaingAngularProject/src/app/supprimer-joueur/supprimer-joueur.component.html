@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="pseudo">Pseudo du joueur a supprimer</label>
+      <input type="text" class="form-control" id="pseudo" placeholder="Votre pseudo" [(ngModel)]="joueurData.name" name="nouveauPseudo">
+    </div>
+    <button type="submit" class="btn btn-primary">Supprimer ce joueur</button>
+  </form>
+  <div *ngIf="messageFromServer">
+    <p>{{ messageFromServer }}</p>
+  </div>
+</div>
+<br>
+<a routerLink="/projet-s4" class="btn btn-primary btn-lg">
+  <i class="fas fa-arrow-left mr-2"></i> Retour
+</a>
