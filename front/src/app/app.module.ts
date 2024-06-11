@@ -20,6 +20,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { TournoiComponent } from './tournoi/tournoi.component';
 import { AjoutTournoiComponent } from './ajout-tournoi/ajout-tournoi.component';
 import { ClassementComponent } from './classement/classement.component';
+import { ListeTournoiComponent } from './liste-tournoi/liste-tournoi.component';
 
 registerLocaleData(localeFr);
 
@@ -36,7 +37,8 @@ registerLocaleData(localeFr);
     MentionsLegalesComponent,
     DonneesPersonnellesComponent,
     TournoiComponent,
-    AjoutTournoiComponent
+    AjoutTournoiComponent,
+    ListeTournoiComponent
   ],
   imports: [
     BrowserModule,
