@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 
-from robaingPythonProject.AppClasses.Connexion import Connexion
-from robaingPythonProject.AppScripts.methodesUtiles import *
+from AppClasses.Connexion import Connexion
+from AppScripts.methodesUtiles import *
 from random import randint
 from collections import Counter
 
@@ -50,6 +50,7 @@ class Tournoi(Connexion):
 
     def inserer_tournoi(self, nom_tournoi: str, date_debut_tournoi: str, heure_debut_tournoi: str, nombre_de_table: int,
                         liste_des_joueurs: list):
+        joueurs = self.db.personnes
 
         if not (nom_tournoi and date_debut_tournoi and heure_debut_tournoi and nombre_de_table and liste_des_joueurs):
             return "Certains paramètres sont vides ou nuls"
@@ -60,6 +61,10 @@ class Tournoi(Connexion):
         liste_de_matchs = self.generer_tournoi(liste_des_joueurs, len(liste_des_joueurs), nombre_de_table,
                                                datetime.strptime(date_debut_tournoi + " " + heure_debut_tournoi,
                                                                  "%Y-%m-%d %H:%M"))
+        
+        for joueur in liste_des_joueurs:
+            joueurs.update_one({"pseudo": joueur}, {"$inc": {"parties_jouees": 1}})
+            
 
         coll = self.db.tournoi
         if self.tournoi_existe(nom_tournoi):
@@ -185,12 +190,13 @@ class Tournoi(Connexion):
 
     def mettre_a_jour_tournoi (self, nom_tournoi: str, gagnants: list):
         coll = self.db.tournoi
+        joueurs = self.db.personnes
         tournoi = coll.find_one({"nom_tournoi": nom_tournoi})
 
         if len(gagnants) > 1 :
             nombre_de_joueurs = len(tournoi.get("liste_des_joueurs", []))
             format_tournoi = self.definir_format_tournoi(nombre_de_joueurs)
-
+            
             if format_tournoi == "Elimination Simple":
                 match_dates = [datetime.strptime(match[3], "%H:%M le %d.%m.%Y") for match in tournoi.get("liste_des_matchs")]
                 nouv_date = max(match_dates) + timedelta(minutes=12)
@@ -205,6 +211,12 @@ class Tournoi(Connexion):
             gagnant_unique = gagnants[0]
             coll.update_one({"nom_tournoi": nom_tournoi}, {"$set": {"gagnant": gagnant_unique}})
             coll.update_one({"nom_tournoi": nom_tournoi}, {"$unset": {"liste_des_matchs": ""}})
+            
+            joueurs.update_one({"pseudo": gagnant_unique}, {"$inc": {"victoires": 1}})
+            
+            for joueur in tournoi.get("liste_des_joueurs", []):
+                if joueur != gagnant_unique:
+                    joueurs.update_one({"pseudo": joueur}, {"$inc": {"defaites": 1}})
 
     def retour_gagnant(self, nomTournoi: str):
         coll = self.db.tournoi

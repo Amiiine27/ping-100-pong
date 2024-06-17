@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 
-from robaingPythonProject.AppClasses.Tournoi import (Tournoi)
+from AppClasses.Tournoi import (Tournoi)
 
 tournoi = Tournoi()
 
@@ -46,6 +46,8 @@ def mettre_a_jour_tournoi():
     data = request.get_json()
     nom_tournoi = data['nom_tournoi']
     gagnants = data['liste_gagnants']
+    
+    print(gagnants)
 
     tournoi.mettre_a_jour_tournoi(nom_tournoi,gagnants)
     return "Tournoi mis à jour avec succès"

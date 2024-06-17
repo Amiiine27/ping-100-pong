@@ -1,5 +1,5 @@
 
-from robaingPythonProject.AppClasses.Connexion import Connexion
+from AppClasses.Connexion import Connexion
 
 
 class Joueur(Connexion):
@@ -21,7 +21,7 @@ class Joueur(Connexion):
         else:
             coll.insert_one(
                 {"prenom": prenom, "nom": nom, "date_naissance": date_naissance, "sexe": sexe,
-                 "pseudo": pseudo})
+                 "pseudo": pseudo, "victoires": 0, "defaites": 0, "parties_jouees": 0})
             return "Ce joueur a été inséré ! "
 
     def inserer_les_joueurs(self, file):
