@@ -1,14 +1,31 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
 <head>
   <meta charset="utf-8">
   <title>RobaingProject</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    /* Assurer une hauteur de 100% pour html, body, et les conteneurs principaux */
+    html, body {
+      height: 100%;
+    }
+    app-root, .bck {
+      height: 100%;
+    }
+  </style>
 </head>
 <body>
-  <app-root></app-root>
+<app-root></app-root>
+<div class="bck"></div>
 </body>
 </html>
+
 
