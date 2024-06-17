@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {RouterLink, RouterOutlet} from "@angular/router";
 import {ApiService} from "../api.service";
 import {NgIf, NgFor} from "@angular/common";
-import {Player} from "../Player";
+import {DisplayPlayer, Player} from "../Player";
 import {resolve} from "node:path";
 
 @Component({
@@ -13,7 +13,7 @@ import {resolve} from "node:path";
   styleUrl: './afficher-joueur.component.css'
 })
 export class AfficherJoueurComponent implements OnInit{
-  data: Player[] = [];
+  data: DisplayPlayer[] = [];
 
   constructor(private apiService: ApiService) {}
 
@@ -21,7 +21,6 @@ export class AfficherJoueurComponent implements OnInit{
     this.apiService.getAffichageJoueur().subscribe(response => {
       console.log(response);
       this.data = response;
-
     });
   }
 }

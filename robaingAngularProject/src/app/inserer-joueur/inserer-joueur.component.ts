@@ -18,7 +18,7 @@ export class InsererJoueurComponent {
     prenom: '',
     date_naissance: '',
     sexe: '',
-    pseudo: ''
+    pseudo: '',
   };
   messageFromServer : string = '';
   messageFromServer2 : string = '';

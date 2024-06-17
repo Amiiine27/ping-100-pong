@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Player, NewNamePlayer, namePlayer} from "./Player";
+import {Player, NewNamePlayer, namePlayer, DisplayPlayer} from "./Player";
 import {
   AffichageTournament,
   nameTournament,
@@ -18,8 +18,8 @@ import {
 })
 export class ApiService {
   constructor(private http: HttpClient) { }
-  getAffichageJoueur(): Observable<Player[]> {
-    return this.http.get<Player[]>(`/api/personnes/`)
+  getAffichageJoueur(): Observable<DisplayPlayer[]> {
+    return this.http.get<DisplayPlayer[]>(`/api/personnes/`)
   }
 
   getAffichageMatchTournament(nomTournoi: string): Observable<Matchs[]> {

@@ -1,4 +1,3 @@
-
 from AppClasses.Connexion import Connexion
 
 
@@ -11,7 +10,7 @@ class Joueur(Connexion):
 
     def inserer_joueur(self, prenom: str, nom: str, date_naissance: str, sexe: str, pseudo: str):
         """Insère un joueur avec tous les attributs entrés, ssi un joueur avec le même prénom,
-         le même nom et la même date de naissance n'existe pas"""
+        le même nom et la même date de naissance n'existe pas"""
         if prenom is None or nom is None or date_naissance is None or sexe is None or pseudo is None:
             return "Veuillez fournir toutes les informations nécessaires pour insérer un joueur"
 
@@ -21,7 +20,7 @@ class Joueur(Connexion):
         else:
             coll.insert_one(
                 {"prenom": prenom, "nom": nom, "date_naissance": date_naissance, "sexe": sexe,
-                 "pseudo": pseudo, "victoires": 0, "defaites": 0, "parties_jouees": 0})
+                "pseudo": pseudo, "victoires": 0, "defaites": 0, "parties_jouees": 0})
             return "Ce joueur a été inséré ! "
 
     def inserer_les_joueurs(self, file):
@@ -90,7 +89,10 @@ class Joueur(Connexion):
                 'nom' : personne.get('nom', ''),
                 'date_naissance': personne.get('date_naissance', ''),
                 'sexe' : personne.get('sexe', ''),
-                'pseudo' : personne.get('pseudo', '')
+                'pseudo' : personne.get('pseudo', ''),
+                'victoires' : personne.get('victoires', ''),
+                'defaites' : personne.get('defaites', ''),
+                'parties_jouees' : personne.get('parties_jouees', ''),
             }
             found.append(filtered_personnes)
         return found

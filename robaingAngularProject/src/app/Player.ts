@@ -6,6 +6,12 @@ export interface Player {
   pseudo: string;
 }
 
+export interface DisplayPlayer extends Player {
+  victoires: number;
+  defaites: number;
+  parties_jouees: number;
+}
+
 export interface NewNamePlayer {
   old_name: string;
   new_name: string;

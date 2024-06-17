@@ -1,7 +1,7 @@
-
+@import url('https://fonts.googleapis.com/css?family=Poppins:900i');
 
 .navbar {
-  <!--background-color: #f7d7eb;-->
+  background-color: #f7d7eb;
   display: flex;
   justify-content: center;
   margin-top: 5%;
@@ -32,9 +32,6 @@
 
 .nav-item {
   margin: 5%;
-}
-
-.btn-group-vertical {
 }
 
 .btn {
@@ -87,10 +84,6 @@
   background-color: #f0bcd4; /* Couleur de fond au survol */
   color: #ffffff; /* Couleur du texte au survol */
 }
-
-
-
-@import url('https://fonts.googleapis.com/css?family=Poppins:900i');
 
 * {
   box-sizing: border-box;
