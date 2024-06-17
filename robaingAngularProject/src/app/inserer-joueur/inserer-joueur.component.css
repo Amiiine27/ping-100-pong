@@ -1,5 +1,5 @@
 .container {
-  background-color: #f7d7eb;
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -7,7 +7,7 @@
 }
 
 h2 {
-  color: #8e3a5f;
+  color: #ffffff;
   margin-bottom: 20px;
 }
 
@@ -16,21 +16,21 @@ h2 {
 }
 
 label {
-  color: #8e3a5f;
+  color: #ffffff;
 }
 
 .form-control {
-  border: 2px solid #8e3a5f;
+  border: 2px solid #b11b33;
 }
 
 .btn-primary {
-  background-color: #8e3a5f;
-  border-color: #8e3a5f;
+  background-color: #1d42a3;
+  border-color: #b11b33;
 }
 
 .btn-primary:hover {
-  background-color: #6c2743;
-  border-color: #6c2743;
+  background-color: #1d42a3;
+  border-color: #b11b33;
 }
 
 

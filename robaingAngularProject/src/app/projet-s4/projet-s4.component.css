@@ -1,9 +1,11 @@
 
 
 .navbar {
-  background-color: #f7d7eb;
+  <!--background-color: #f7d7eb;-->
   display: flex;
   justify-content: center;
+  margin-top: 5%;
+
 }
 
 .navbar-brand {
@@ -28,7 +30,9 @@
   width: 100%;
 }
 
-
+.nav-item {
+  margin: 5%;
+}
 
 .btn-group-vertical {
 }
@@ -56,13 +60,14 @@
   display: none; /* Cache le menu déroulant par défaut */
   position: absolute;
   z-index: 1000; /* Assure que le menu déroulant apparaît au-dessus des autres éléments */
-  background-color: #f7d7eb; /* Couleur de fond du menu déroulant */
+  background-color: transparent; /* Couleur de fond du menu déroulant */
+  color: white;
 }
 
 /* Style pour afficher le menu déroulant lorsqu'un bouton est survolé */
 .navbar-nav .nav-item:hover .dropdown-menu {
   display: flex; /* Affiche le menu déroulant lorsque survolé */
-  flex-direction: row; /* Ajuste la direction du menu déroulant à l'horizontale */
+  flex-direction: column; /* Ajuste la direction du menu déroulant à l'horizontale */
   justify-content: center; /* Centre les éléments horizontalement */
   list-style-type: none; /* Supprime les puces de la liste */
   padding: 0; /* Ajuste le padding si nécessaire */
@@ -71,7 +76,7 @@
 
 /* Style pour les éléments de menu déroulant */
 .navbar-nav .dropdown-menu a {
-  color: #8e3a5f; /* Couleur du texte */
+  color: #ffffff; /* Couleur du texte */
   padding: 10px 20px; /* Ajuste le padding si nécessaire */
   text-decoration: none; /* Supprime la décoration du texte */
   transition: all 0.3s ease; /* Ajoute une transition fluide */
@@ -80,5 +85,122 @@
 /* Style pour les liens de menu déroulant lorsqu'ils sont survolés */
 .navbar-nav .dropdown-menu a:hover {
   background-color: #f0bcd4; /* Couleur de fond au survol */
-  color: #6c2743; /* Couleur du texte au survol */
+  color: #ffffff; /* Couleur du texte au survol */
+}
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:900i');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.cta {
+  display: flex;
+  padding: 10px 45px;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
+  color: white;
+  background: #b11b33;
+  transition: 1s;
+  box-shadow: 6px 6px 0 black;
+  transform: skewX(-15deg);
+}
+
+.ctaund {
+  display: flex;
+  padding: 10px 45px;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
+  color: white;
+  background: #b11b33;
+  transition: 1s;
+  box-shadow: 6px 6px 0 black;
+  transform: skewX(-15deg);
+  width: 15px;
+}
+
+.cta:focus {
+  outline: none;
+}
+
+.cta:hover {
+  transition: 0.5s;
+  box-shadow: 10px 10px 0 #6c8dea;
+}
+
+.cta span:nth-child(2) {
+  transition: 0.5s;
+  margin-right: 0px;
+}
+
+.cta:hover  span:nth-child(2) {
+  transition: 0.5s;
+  margin-right: 45px;
+}
+
+span {
+  transform: skewX(15deg)
+}
+
+span:nth-child(2) {
+  width: 10px;
+  margin-left: 30px;
+  position: relative;
+  top: 12%;
+}
+
+/**************SVG****************/
+
+path.one {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+path.two {
+  transition: 0.5s;
+  transform: translateX(-30%);
+}
+
+.cta:hover path.three {
+  animation: color_anim 1s infinite 0.2s;
+}
+
+.cta:hover path.one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+
+.cta:hover path.two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+
+/* SVG animations */
+
+@keyframes color_anim {
+  0% {
+    fill: white;
+  }
+  50% {
+    fill: #0c9eca;
+  }
+  100% {
+    fill: white;
+  }
 }

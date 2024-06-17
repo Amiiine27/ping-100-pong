@@ -30,7 +30,7 @@
       </select>
     </div>
     <div>
-      <h3>Joueurs sélectionnés :</h3>
+      <h3 style="color: #fff">Joueurs sélectionnés :</h3>
       <ul>
         <li *ngFor="let pseudo of tournoiData.joueurs_participants">{{ pseudo }}<button class="btn btn-primary" (click)="retirerJoueur(pseudo)">Retirer</button></li>
       </ul>

@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background-image: url("assets/wpp.png");
+  background-size: 100%;
+  height: 1vh;
+  width: 100%;
+}/* You can add global styles to this file, and also import other style files */

@@ -1,19 +1,28 @@
 table {
   width: 100%;
   border-collapse: collapse;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.tab {
+  margin: 50px;
 }
 
 thead {
-  background-color: #f7d7eb;
+  background-color: #b11b33;
 }
 
 th, td {
   padding: 10px;
-  border: 1px solid #8e3a5f;
+  border: 1px solid #ffffff;
 }
 
 th {
-  color: #8e3a5f;
+  color: #ffffff;
   font-weight: bold;
 }
 
@@ -37,6 +46,6 @@ tbody tr:nth-child(odd) {
 }
 
 .btn-lg:hover {
-  background-color: #8e3a5f;
-  border-color: #8e3a5f;
+  background-color: #ed1639;
+  border-color: #1d42a3;
 }
