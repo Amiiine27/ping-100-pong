@@ -19,7 +19,7 @@ class Joueur(Connexion):
         else:
             coll.insert_one(
                 {"prenom": prenom, "nom": nom, "date_naissance": date_naissance, "sexe": sexe,
-                 "pseudo": pseudo})
+                 "pseudo": pseudo, "victoires": 0, "defaites": 0, "parties_jouees": 0 })
             return "Ce joueur a été inséré ! "
 
     def inserer_les_joueurs(self, file):
@@ -86,7 +86,10 @@ class Joueur(Connexion):
                 'nom': personne.get('nom', ''),
                 'date_naissance': personne.get('date_naissance', ''),
                 'sexe': personne.get('sexe', ''),
-                'pseudo': personne.get('pseudo', '')
+                'pseudo': personne.get('pseudo', ''),
+                'victoires': personne.get('victoires', ''),
+                'defaites': personne.get('defaites', ''),
+                'parties_jouees': personne.get('parties_jouees', '')
             }
             found.append(filtered_personnes)
         return found

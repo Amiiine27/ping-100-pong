@@ -110,11 +110,6 @@ class Tournoi(Connexion):
         liste_de_matchs = self.generer_tournoi_2(liste_des_joueurs, nombre_de_table,
                                                  datetime.strptime(date_debut_tournoi + " " + heure_debut_tournoi,
                                                                    "%Y-%m-%d %H:%M"), format)
-
-        # liste_de_matchs = self.generer_tournoi(liste_des_joueurs, len(liste_des_joueurs), nombre_de_table,
-        #                                        datetime.strptime(date_debut_tournoi + " " + heure_debut_tournoi,
-        #                                                          "%Y-%m-%d %H:%M"))
-        #
         coll = self.db.tournoi
         if self.tournoi_existe(nom_tournoi):
             return "Un tournoi ayant ce nom existe déjà"
@@ -349,9 +344,15 @@ class Tournoi(Connexion):
     def retour_gagnant(self, nom_tournoi: str):
         coll = self.db.tournoi
         tournoi = coll.find_one({"nom_tournoi": nom_tournoi})
+        joueurs = self.db.joueurs
 
         if tournoi:
             gagnant = tournoi.get("gagnant")
             if gagnant is not None:
+                joueurs.update_one({"pseudo": gagnant}, {"$inc": {"victoires": 1}})
+
+                for joueur in tournoi.get("liste_des_joueurs", []):
+                    if joueur != gagnant:
+                        joueurs.update_one({"pseudo": joueur}, {"$inc": {"defaites": 1}})
                 return gagnant
         return "null"
