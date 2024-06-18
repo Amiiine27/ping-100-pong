@@ -32,12 +32,12 @@
     <div>
       <h3 style="color: #fff">Joueurs sélectionnés :</h3>
       <ul>
-        <li *ngFor="let pseudo of tournoiData.joueurs_participants">{{ pseudo }}<button class="btn btn-primary" (click)="retirerJoueur(pseudo)">Retirer</button></li>
+        <li *ngFor="let pseudo of tournoiData.joueurs_participants" class="text-white">{{ pseudo }}<button class="btn btn-primary" (click)="retirerJoueur(pseudo)">Retirer</button></li>
       </ul>
     </div>
     <button type="submit" class="btn btn-primary">Soumettre</button>
   </form>
   <div *ngIf="messageFromServer">
-    <p>{{ messageFromServer }}</p>
+    <p class="text-white">{{ messageFromServer }}</p>
   </div>
 </div>

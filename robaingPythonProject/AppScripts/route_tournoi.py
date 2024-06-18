@@ -47,7 +47,7 @@ def mettre_a_jour_tournoi():
     nom_tournoi = data['nom_tournoi']
     gagnants = data['liste_gagnants']
     
-    print(gagnants)
+    print("ici", gagnants)
 
     tournoi.mettre_a_jour_tournoi(nom_tournoi,gagnants)
     return "Tournoi mis à jour avec succès"

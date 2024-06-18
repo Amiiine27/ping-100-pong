@@ -211,20 +211,21 @@ class Tournoi(Connexion):
             gagnant_unique = gagnants[0]
             coll.update_one({"nom_tournoi": nom_tournoi}, {"$set": {"gagnant": gagnant_unique}})
             coll.update_one({"nom_tournoi": nom_tournoi}, {"$unset": {"liste_des_matchs": ""}})
-            
-            joueurs.update_one({"pseudo": gagnant_unique}, {"$inc": {"victoires": 1}})
-            
-            for joueur in tournoi.get("liste_des_joueurs", []):
-                if joueur != gagnant_unique:
-                    joueurs.update_one({"pseudo": joueur}, {"$inc": {"defaites": 1}})
 
     def retour_gagnant(self, nomTournoi: str):
         coll = self.db.tournoi
         tournoi = coll.find_one({"nom_tournoi": nomTournoi})
+        joueurs = self.db.personnes
 
         if tournoi:
             gagnant = tournoi.get("gagnant")
             if gagnant is not None:
+                joueurs.update_one({"pseudo": gagnant}, {"$inc": {"victoires": 1}})
+                
+                for joueur in tournoi.get("liste_des_joueurs", []):
+                    if joueur != gagnant:
+                        joueurs.update_one({"pseudo": joueur}, {"$inc": {"defaites": 1}})
+                
                 return gagnant
         return "null"
 

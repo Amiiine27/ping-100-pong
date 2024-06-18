@@ -1,7 +1,9 @@
 <div class="container mt-5">
   <ng-container *ngIf="gagnant !== 'null'; else afficherListeTournois">
-    <h2>Tournoi terminé</h2>
-    <p>Le gagnant est : {{ gagnant }}</p>
+    <div class="text-white">
+      <h2>Tournoi terminé</h2>
+      <p>Le gagnant est : {{ gagnant }}</p>
+    </div>
   </ng-container>
   <ng-template #afficherListeTournois>
     <h2>Matches Du Tournoi</h2>
@@ -37,7 +39,7 @@
 
 
 <ng-template #Winner>
-  <div class="container mt-5">
+  <div class="container mt-5 text-white">
     <h2>Le Gagnant Est</h2>
     <p>{{ gagnant }}</p>
   </div>
