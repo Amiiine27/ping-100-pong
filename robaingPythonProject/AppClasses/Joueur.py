@@ -2,7 +2,6 @@ from AppClasses.Connexion import Connexion
 
 
 class Joueur(Connexion):
-
     _next_id = 0
 
     def __init__(self):
@@ -10,7 +9,7 @@ class Joueur(Connexion):
 
     def inserer_joueur(self, prenom: str, nom: str, date_naissance: str, sexe: str, pseudo: str):
         """Insère un joueur avec tous les attributs entrés, ssi un joueur avec le même prénom,
-        le même nom et la même date de naissance n'existe pas"""
+         le même nom et la même date de naissance n'existe pas"""
         if prenom is None or nom is None or date_naissance is None or sexe is None or pseudo is None:
             return "Veuillez fournir toutes les informations nécessaires pour insérer un joueur"
 
@@ -20,12 +19,12 @@ class Joueur(Connexion):
         else:
             coll.insert_one(
                 {"prenom": prenom, "nom": nom, "date_naissance": date_naissance, "sexe": sexe,
-                "pseudo": pseudo, "victoires": 0, "defaites": 0, "parties_jouees": 0})
+                 "pseudo": pseudo})
             return "Ce joueur a été inséré ! "
 
     def inserer_les_joueurs(self, file):
-        compteurY = 0
-        compteurN = 0
+        compteur_y = 0
+        compteur_n = 0
         if file.filename.endswith('.csv'):
             try:
                 with file.stream as csvfile:
@@ -36,22 +35,20 @@ class Joueur(Connexion):
                         retour = self.inserer_joueur(prenom, nom, date_naissance, sexe, pseudo)
 
                         if retour == "Ce joueur a été inséré ! ":
-                            compteurY += 1
+                            compteur_y += 1
                         else:
-                            compteurN += 1
+                            compteur_n += 1
 
-                return f"{compteurY} Joueurs ont pu être insérés sur {compteurN + compteurY}"
+                return f"{compteur_y} Joueurs ont pu être insérés sur {compteur_n + compteur_y}"
             except Exception as e:
                 return f"Une erreur s'est produite : {e}"
         else:
             return f"{file.filename} n'est pas un fichier csv"
 
-
-
     def joueur_existe(self, pseudo: str):
         coll = self.db.personnes
         requete = coll.find_one({"pseudo": pseudo})
-        if (requete != None):
+        if requete is not None:
             return True
         else:
             return False
@@ -86,17 +83,10 @@ class Joueur(Connexion):
         for personne in request:
             filtered_personnes = {
                 'prenom': personne.get('prenom', ''),
-                'nom' : personne.get('nom', ''),
+                'nom': personne.get('nom', ''),
                 'date_naissance': personne.get('date_naissance', ''),
-                'sexe' : personne.get('sexe', ''),
-                'pseudo' : personne.get('pseudo', ''),
-                'victoires' : personne.get('victoires', ''),
-                'defaites' : personne.get('defaites', ''),
-                'parties_jouees' : personne.get('parties_jouees', ''),
+                'sexe': personne.get('sexe', ''),
+                'pseudo': personne.get('pseudo', '')
             }
             found.append(filtered_personnes)
         return found
-
-if __name__ == "__main__":
-    j = Joueur()
-    print(j.afficher_joueur())

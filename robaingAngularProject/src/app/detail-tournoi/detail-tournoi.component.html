@@ -10,26 +10,40 @@
     <form (ngSubmit)="onSubmit()">
       <table class="table">
         <thead>
-        <tr>
-          <th>JoueurA</th>
-          <th>JoueurB</th>
-          <th>Table</th>
-          <th>Horaire</th>
-        </tr>
+          <tr>
+            <th>JoueurA</th>
+            <th>JoueurB</th>
+            <th>Table</th>
+            <th>Horaire</th>
+            <th>Type de match</th>
+          </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let match of data; let i = index">
-          <td>
-            <input type="radio" id="j1{{i}}" name="jGagnant{{i}}" value="{{ match[0] }}" />
-            <label for="j1{{i}}">{{ match[0] }}</label>
-          </td>
-          <td>
-            <input type="radio" id="j2{{i}}" name="jGagnant{{i}}" value="{{ match[1] }}" />
-            <label for="j2{{i}}">{{ match[1] }}</label>
-          </td>
-          <td>{{ match[2] }}</td>
-          <td>{{ match[3] }}</td>
-        </tr>
+          <tr *ngFor="let match of data; let i = index">
+            <td>
+              <input
+                type="radio"
+                id="j1{{ i }}"
+                name="jGagnant{{ i }}"
+                value="{{ match[0] }}"
+                *ngIf="match[6] == 'En cours'"
+              />
+              <label for="j1{{ i }}">{{ match[0] }}</label>
+            </td>
+            <td>
+              <input
+                type="radio"
+                id="j2{{ i }}"
+                name="jGagnant{{ i }}"
+                value="{{ match[1] }}"
+                *ngIf="match[6] == 'En cours'"
+              />
+              <label for="j2{{ i }}">{{ match[1] }}</label>
+            </td>
+            <td>{{ match[2] }}</td>
+            <td>{{ match[3] }}</td>
+            <td>{{ match[5] }}</td>
+          </tr>
         </tbody>
       </table>
       <button type="submit" class="btn btn-primary">Valider</button>
@@ -37,13 +51,9 @@
   </ng-template>
 </div>
 
-
 <ng-template #Winner>
   <div class="container mt-5 text-white">
     <h2>Le Gagnant Est</h2>
     <p>{{ gagnant }}</p>
   </div>
 </ng-template>
-
-
-
